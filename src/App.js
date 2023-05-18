@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import SVGWindow from './components/svgwindow'
 
 function App() {
   const [image, setImage] = useState(null)
@@ -48,6 +49,7 @@ function App() {
       {imageProperties && (
         <div>
           <img src={image} alt='Upload Image'/>
+          <SVGWindow radius={5} width={imageProperties.width} height={imageProperties.height} k={20} n={1} pixels={imageProperties.pixels}></SVGWindow> 
           <p> Width: {imageProperties.width} </p>
           <p> Height: {imageProperties.height} </p>
           <p> Pixels: </p>
