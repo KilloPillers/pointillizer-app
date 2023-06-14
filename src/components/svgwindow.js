@@ -1,73 +1,35 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { ReactSVGPanZoom, TOOL_NONE, INITIAL_VALUE } from "react-svg-pan-zoom";
+import { useState, useEffect, useRef } from "react";
 
-function SVGWindow({radius, width, height, k, n, pixels}) {
-  const [points, setPoints] = useState([])
+function SVGWindow({circles, width, height}) {
+  const [tool, setTool] = useState(TOOL_NONE)
+  const [value, setValue] = useState(INITIAL_VALUE)
+  const Viewer = useRef(null)
 
   useEffect(() => {
-    console.log("RGB Values: ", pixels)
-    //Create a new web worker
-    const worker = new Worker('/poissonWorker.js')
+    Viewer.current.fitToViewer();
+  }, [])
 
-    worker.addEventListener('error', (err) => {
-      console.error("Error Loading Web Worker:", err)
-    })
-
-    //Generate a unique component ID
-    //const componentId = Math.random().toString(36).substring(7)
-
-    //Function to handle messages received from the web worker
-    function handleWorkerMessage(event) {
-      //const {componenId: receivedComponentId, receivedPoints} = event.data
-      //if (componentId === receivedComponentId)
-      const receivedPoints = event.data
-      setPoints(receivedPoints)
-    }
-    
-    //Attach the message event listener
-    worker.addEventListener('message', handleWorkerMessage)
-
-    //Function to trigger the point generator
-    function generatePoints() {
-      //Send a message to the web worker
-      worker.postMessage({radius, width, height, k, n, pixels})
-    }
-
-    //Call the point generation function
-    generatePoints();
-
-    return () => {
-      worker.removeEventListener('message', handleWorkerMessage)
-      worker.terminate()
-    }
-  }, []) 
-
-  function GenerateCircleElement(circle, index) {
-    try {
-      const color = `rgb(${pixels[Math.floor(circle[0])*Math.floor(circle[1])][0]},${pixels[Math.floor(circle[0])*Math.floor(circle[1])][1]},${pixels[Math.floor(circle[0])*Math.floor(circle[1])][2]})`
-      return <circle 
+  return (
+      <ReactSVGPanZoom 
+      ref={Viewer}  
+      width={1600} height={800} 
+      tool={tool} onChangeTool={setTool}
+      value={value} onChangeValue={setValue}
+      >
+        <svg width={width} height={height}> { 
+          circles.map((circle, index) => {
+            return <circle 
               key={index}
               cx={circle[0]} 
               cy={circle[1]}
-              r={radius}
-              fill={color}/>       
-    } catch (error) {
-      console.error(pixels[Math.floor(circle[0])*Math.floor(circle[1])])
-    }
-  }
-
-  return (
-    <>
-    {points.length > 0 ? (
-      <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height}> { 
-        points.map((circle, index) => (
-          GenerateCircleElement(circle,index)
-        ))} 
-      </svg>
-      ) : ( 
-      <header>Loading...</header>
-      )}
-    </>
+              r={circle[2]}
+              fill={circle[3]}
+              strokeWidth={.001}/>  
+          })} 
+        </svg>  
+      </ReactSVGPanZoom>
   );
 }
 

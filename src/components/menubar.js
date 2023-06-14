@@ -62,7 +62,7 @@ function MenuBar({scriptSetter, settings, settingsSetter, imageProperties, image
     <div className="settings">
       <div className="settings-head">
         <div className="Title">Settings</div>
-        <input type='file' accept='image/*'onChange={handleImageUpload}/>
+        <input className="Input" type='file' accept='image/*'onChange={handleImageUpload}/>
         <div>
           <Dropdown onSelect={handleSelect}>
             <Dropdown.Toggle variant="primary" id="dropdown-basic">
@@ -77,8 +77,10 @@ function MenuBar({scriptSetter, settings, settingsSetter, imageProperties, image
           {script && <p>Selected option: {script}</p>}
         </div>
       </div>
-      {SettingsMenu(script)}
-      <div className="settings-foot">
+      <div className="generator-settings">
+        {SettingsMenu(script)}
+      </div>
+      <div className="settings-footer">
         <button onClick={()=>{
           if (worker.current)
             worker.current.postMessage({...settings, ...imageProperties})
