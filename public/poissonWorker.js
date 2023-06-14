@@ -38,7 +38,9 @@ function poissondisksampling(radius, width, height, k, padding, pixels) {
   const minDist = 2*radius+padding
 
   //initialize our first point
-  const p0 = [Math.random()*width, Math.random()*height]
+  const rx = Math.random()*width
+  const ry = Math.random()*height
+  const p0 = [rx, ry, radius, pixels[(width * Math.floor(ry)) + Math.floor(rx)]] 
   let grid = []
   const cellsize = Math.floor(minDist/Math.sqrt(2))
 
@@ -88,7 +90,7 @@ function poissondisksampling(radius, width, height, k, padding, pixels) {
       active.splice(random_index, 1)
     }
   }
-
+  console.log(points)
   return points
 }
 

@@ -11,6 +11,7 @@ function SVGWindow({circles, width, height}) {
       width={"100%"} height={"85vh"} 
       tool={tool} onChangeTool={setTool}
       value={value} onChangeValue={setValue}
+      SVGBackground="grey"
       >
         <svg width={width} height={height}> { 
           circles.map((circle, index) => {
@@ -19,7 +20,7 @@ function SVGWindow({circles, width, height}) {
               cx={circle[0]} 
               cy={circle[1]}
               r={circle[2]}
-              fill={circle[3]}
+              fill={`rgb(${circle[3][0]},${circle[3][1]},${circle[3][2]})`}
               strokeWidth={.001}/>  
           })} 
         </svg>  
