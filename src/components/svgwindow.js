@@ -1,20 +1,14 @@
 import React from "react";
 import { ReactSVGPanZoom, TOOL_NONE, INITIAL_VALUE } from "react-svg-pan-zoom";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 
 function SVGWindow({circles, width, height}) {
   const [tool, setTool] = useState(TOOL_NONE)
   const [value, setValue] = useState(INITIAL_VALUE)
-  const Viewer = useRef(null)
-
-  useEffect(() => {
-    Viewer.current.fitToViewer();
-  }, [])
 
   return (
       <ReactSVGPanZoom 
-      ref={Viewer}  
-      width={1600} height={800} 
+      width={"100%"} height={"85vh"} 
       tool={tool} onChangeTool={setTool}
       value={value} onChangeValue={setValue}
       >
