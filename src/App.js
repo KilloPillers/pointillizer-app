@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { Box, Paper } from '@mui/material'
 import './App.css'
 import SVGWindow from './components/svgwindow'
 import PageHeader from './components/header'
@@ -35,7 +36,7 @@ function App() {
   }
 
   return (
-    <div className='App'>
+    <Box className='App'>
       <PageHeader generator={workerRef}></PageHeader>
       <div className='Body'>
         <MenuBar className='Menu' scriptSetter={setScript} 
@@ -46,7 +47,7 @@ function App() {
           {svgwindow()}
         </div>
       </div>
-    </div>
+    </Box>
   );
 }
 

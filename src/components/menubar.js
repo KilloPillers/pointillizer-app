@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Dropdown } from 'react-bootstrap'
 import './menubar.css'
+import { Paper, Box, Divider } from "@mui/material"
 import PoissonSettings from './poissonsettings'
 
 function MenuBar({scriptSetter, settings, settingsSetter, imageProperties, imagePropertiesSetter, worker}) {
@@ -59,11 +60,11 @@ function MenuBar({scriptSetter, settings, settingsSetter, imageProperties, image
   }
 
   return (
-    <div className="settings">
-      <div className="settings-head">
-        <div className="Title">Settings</div>
+    <Box className="settings">
+      <Paper className="settings-head">
+        <Paper className="Title">Settings</Paper>
         <input className="Input" type='file' accept='image/*'onChange={handleImageUpload}/>
-        <div>
+        <Paper>
           <Dropdown onSelect={handleSelect}>
             <Dropdown.Toggle variant="primary" id="dropdown-basic">
               Select a Generator
@@ -75,18 +76,20 @@ function MenuBar({scriptSetter, settings, settingsSetter, imageProperties, image
             </Dropdown.Menu>
           </Dropdown>
           {script && <p>Selected option: {script}</p>}
-        </div>
-      </div>
-      <div className="generator-settings">
+        </Paper>
+      </Paper>
+      <Divider/>
+      <Paper className="generator-settings">
         {SettingsMenu(script)}
-      </div>
-      <div className="settings-footer">
+      </Paper>
+      <Divider/>
+      <Paper className="settings-footer">
         <button onClick={()=>{
           if (worker.current)
             worker.current.postMessage({...settings, ...imageProperties})
         }}>Start Generating</button>
-      </div>
-    </div>
+      </Paper>
+    </Box>
   ) 
 }
 
