@@ -12,8 +12,9 @@ function SVGWindow({circles, width, height}) {
       tool={tool} onChangeTool={setTool}
       value={value} onChangeValue={setValue}
       SVGBackground="grey"
+      id="SVGTES"
       >
-        <svg width={width} height={height}> { 
+        <svg width={width} height={height} id="SVGImage"> { 
           circles.map((circle, index) => {
             return <circle 
               key={index}

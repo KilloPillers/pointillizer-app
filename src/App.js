@@ -43,7 +43,7 @@ function App() {
         settings={settings} settingsSetter={setSettings} imageProperties={imageProperties}
         imagePropertiesSetter={setImageProperties} worker={workerRef}>
         </MenuBar>
-        <div className='SVG'>
+        <div className='SVG' id='SVGwindow'>
           {svgwindow()}
         </div>
       </div>
