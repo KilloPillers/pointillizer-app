@@ -1,4 +1,3 @@
-
 function dist(p1, p2) {
   return Math.sqrt(Math.pow((p2[0] - p1[0]), 2) + Math.pow(p2[1] - p1[1], 2))
 }
@@ -96,6 +95,5 @@ function poissondisksampling(radius, width, height, k, padding, pixels) {
 self.addEventListener('message', function(event) {
   const {radius, width, height, k, padding, pixels} = event.data;
   const points = poissondisksampling(radius, width, height, k, padding, pixels)
-  //TODO fix algorithm's n=1 attribute to work with any number
   self.postMessage(points)
 })
