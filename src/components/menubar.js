@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import './menubar.css'
 import { Paper, Box, Divider, Menu, MenuItem, Input, Button } from "@mui/material"
 import PoissonSettings from './poissonsettings'
+import FSSsettings from "./FSSsettings"
 import ImageIcon from '@mui/icons-material/Image';
 import GrainIcon from '@mui/icons-material/Grain';
 
@@ -9,6 +10,8 @@ function SettingsMenu({ script, settings, settingsSetter }) {
   switch (script){
     case "/poissonWorker.js":
       return <PoissonSettings settings={settings} settingsSetter={settingsSetter}></PoissonSettings>
+    case "/FSS.js":
+      return <FSSsettings settings={settings} settingsSetter={settingsSetter}></FSSsettings>
     default:
       return <div>NO GENERATOR</div>
   }
