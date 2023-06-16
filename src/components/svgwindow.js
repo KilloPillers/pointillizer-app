@@ -8,7 +8,7 @@ function SVGWindow({circles, width, height}) {
 
   return (
       <ReactSVGPanZoom 
-      width={"100%"} height={"85vh"} 
+      width={"100%"} height={"100%"} 
       tool={tool} onChangeTool={setTool}
       value={value} onChangeValue={setValue}
       SVGBackground="grey"

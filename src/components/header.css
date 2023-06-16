@@ -1,6 +1,9 @@
 .title {
   color: white;
-  margin-left: auto;
+}
+
+.header {
+  width: 100%;
 }
 
 .save {

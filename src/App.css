@@ -9,18 +9,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 75px;
+  padding-bottom: 10px;
   width: 100%;
   height: 100%;
 }
 
-.Menu {
-  align-self: center;
-  justify-content: center;
-}
-
 .SVG {
   width: auto;
-  height: 85vh;
+  height: 100%;
+  background-color: red;
   flex: 1;
-  margin: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }

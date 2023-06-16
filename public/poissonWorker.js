@@ -90,7 +90,6 @@ function poissondisksampling(radius, width, height, k, padding, pixels) {
       active.splice(random_index, 1)
     }
   }
-  console.log(points)
   return points
 }
 

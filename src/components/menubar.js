@@ -1,11 +1,31 @@
 import React, { useState } from "react"
-import { Dropdown } from 'react-bootstrap'
 import './menubar.css'
-import { Paper, Box, Divider } from "@mui/material"
+import { Paper, Box, Divider, Menu, MenuItem, Input, Button } from "@mui/material"
 import PoissonSettings from './poissonsettings'
+import ImageIcon from '@mui/icons-material/Image';
+import GrainIcon from '@mui/icons-material/Grain';
+
+function SettingsMenu({ script, settings, settingsSetter }) {
+  switch (script){
+    case "/poissonWorker.js":
+      return <PoissonSettings settings={settings} settingsSetter={settingsSetter}></PoissonSettings>
+    default:
+      return <div>NO GENERATOR</div>
+  }
+}
 
 function MenuBar({scriptSetter, settings, settingsSetter, imageProperties, imagePropertiesSetter, worker}) {
   const [script, setScript] = useState("")
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null)
+  };
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0]
@@ -44,50 +64,63 @@ function MenuBar({scriptSetter, settings, settingsSetter, imageProperties, image
     }
   }
 
-  function SettingsMenu(script) {
-    switch (script){
-      case "/poissonWorker.js":
-        return <PoissonSettings settings={settings} settingsSetter={settingsSetter}></PoissonSettings>
-      default:
-        return <div>NO GENERATOR</div>
-
+  const handleSelect = (eventKey) => {
+    setAnchorEl(null)
+    if (script !== eventKey){
+      scriptSetter(eventKey)
+      setScript(eventKey)
     }
-  }
-
-  function handleSelect(eventKey) {
-    scriptSetter(eventKey)
-    setScript(eventKey)
   }
 
   return (
     <Box className="settings">
       <Paper className="settings-head">
-        <Paper className="Title">Settings</Paper>
-        <input className="Input" type='file' accept='image/*'onChange={handleImageUpload}/>
-        <Paper>
-          <Dropdown onSelect={handleSelect}>
-            <Dropdown.Toggle variant="primary" id="dropdown-basic">
-              Select a Generator
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Dropdown.Item eventKey="/poissonWorker.js">Poisson Generator</Dropdown.Item>
-              <Dropdown.Item eventKey="option2">Option 2</Dropdown.Item>
-              <Dropdown.Item eventKey="option3">Option 3</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-          {script && <p>Selected option: {script}</p>}
+        <Paper className="Title" sx={{margin:"10px", padding:"10px"}}>Settings</Paper>
+        <Input
+        type="file"
+        onChange={handleImageUpload}
+        sx={{ display: 'none' }} // Hide the input visually
+      />
+      <Button variant="contained" component="label" sx={{margin:"3px"}}>
+        <ImageIcon/>
+        Select Photo
+        <input type="file" style={{ display: 'none' }} onChange={handleImageUpload} />
+      </Button>
+        <Paper sx={{margin:"3px"}}>
+          <Button
+          id="basic-button"
+          aria-controls={open ? 'basic-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? 'true' : undefined}
+          onClick={handleClick}
+          >
+            <GrainIcon/>
+            Select Dot Generator
+          </Button>
+          <Menu
+            id="basic-menu"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            MenuListProps={{
+              'aria-labelledby': 'basic-button',
+            }}
+          >
+            <MenuItem onClick={()=>handleSelect('/poissonWorker.js')}>Poisson Disc Sampling</MenuItem>
+            <MenuItem onClick={()=>handleSelect('/FSS.js')}>Fibonacci Sunflower Spiral</MenuItem>
+          </Menu>
         </Paper>
       </Paper>
-      <Divider/>
+      <Divider sx={{margin:"5px"}}/>
       <Paper className="generator-settings">
-        {SettingsMenu(script)}
+        {<SettingsMenu script={script} settings={settings} settingsSetter={settingsSetter} />}
       </Paper>
-      <Divider/>
+      <Divider sx={{margin:"5px"}}/>
       <Paper className="settings-footer">
-        <button onClick={()=>{
+        <Button variant="contained" sx={{margin:"5px"}} onClick={()=>{
           if (worker.current)
             worker.current.postMessage({...settings, ...imageProperties})
-        }}>Start Generating</button>
+        }}>Start Generating</Button>
       </Paper>
     </Box>
   ) 

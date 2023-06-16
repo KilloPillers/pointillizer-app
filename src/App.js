@@ -39,7 +39,7 @@ function App() {
     <Box className='App'>
       <PageHeader generator={workerRef}></PageHeader>
       <div className='Body'>
-        <MenuBar className='Menu' scriptSetter={setScript} 
+        <MenuBar scriptSetter={setScript} 
         settings={settings} settingsSetter={setSettings} imageProperties={imageProperties}
         imagePropertiesSetter={setImageProperties} worker={workerRef}>
         </MenuBar>

@@ -7,26 +7,22 @@ import {
 
 function DefaultSVG() {
   return (
-    <div style={{height:"100%"}}>
       <ReactSvgPanZoomLoader height={"100%"}
         src="../logo.svg"
         proxy={
-          <>
-            <SvgLoaderSelectElement height={"100%"}
+            <SvgLoaderSelectElement height={"100%"} id="tes3"
               selector="#maturetree"
               onClick={e => alert("Tree")}
             />
-          </>
         }
         render={content => (
-          <UncontrolledReactSVGPanZoom width={"100%"} height={"85vh"}>
+          <UncontrolledReactSVGPanZoom width={"100%"} height={"92vh"} id="test2">
             <svg width={1680} height={880}>
               {content}
             </svg>
           </UncontrolledReactSVGPanZoom>
         )}
       />
-    </div>
   );
 }
 
