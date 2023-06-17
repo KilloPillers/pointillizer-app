@@ -1,3 +1,4 @@
+// eslint-disable-line no-restricted-globals
 function dist(p1, p2) {
   return Math.sqrt(Math.pow((p2[0] - p1[0]), 2) + Math.pow(p2[1] - p1[1], 2))
 }
@@ -74,7 +75,6 @@ function poissondisksampling(radius, width, height, k, padding, pixels) {
       const pnew  = [pnewx, pnewy, radius, pixels[(width * Math.floor(pnewy)) + Math.floor(pnewx)]]
       
       if (!isValidPoint(grid, cellsize, width, height, ncells_width, ncells_height, pos, minDist)) {
-        //console.log("Point invalid: ", pnew)
         continue
       }
       points.push(pnew)
