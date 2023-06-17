@@ -61,7 +61,6 @@ function MenuBar({scriptSetter, settings, settingsSetter, imageProperties, image
           imagePropertiesSetter({width, height, pixels})
         }
         image.src = e.target.result
-        //setImage(e.target.result)
       }
       reader.readAsDataURL(file)
     }

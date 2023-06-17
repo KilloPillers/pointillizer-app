@@ -74,7 +74,6 @@ function poissondisksampling(radius, width, height, k, padding, pixels) {
       const pnew  = [pnewx, pnewy, radius, pixels[(width * Math.floor(pnewy)) + Math.floor(pnewx)]]
       
       if (!isValidPoint(grid, cellsize, width, height, ncells_width, ncells_height, pos, minDist)) {
-        //console.log("Point invalid: ", pnew)
         continue
       }
       points.push(pnew)

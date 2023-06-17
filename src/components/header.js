@@ -20,15 +20,12 @@ const PageHeader = () => {
     const element = document.getElementById('SVGwindow').querySelector('svg')
     const data = element.outerHTML
     //Take a little off the top ;)
-    console.log(data)
     const lines = data.split('>')
-    console.log(lines)
     const modifiedLines = lines.slice(4) //remove the first 3 lines
     modifiedLines.splice(modifiedLines.length-3,1) //remove the <g> ending wrapperS
     //Parse string for width and height
     const widthRegex = /width="(\d+)"/;
     const heightRegex = /height="(\d+)"/;
-    console.log(modifiedLines[0])
     const widthMatch = modifiedLines[0].match(widthRegex)
     const heightMatch = modifiedLines[0].match(heightRegex)
 
@@ -37,7 +34,6 @@ const PageHeader = () => {
     //append the new svg header
     const newSVG = [`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"`, ...modifiedLines]
     const modifiedString = newSVG.join('>\n')
-    console.log(modifiedString)
     const blob = new Blob([modifiedString], { type: 'text/plain;charset=utf-8'})
     saveAs(blob, 'dotillismio.svg')
   }
