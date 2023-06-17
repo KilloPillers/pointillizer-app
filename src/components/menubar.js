@@ -8,9 +8,9 @@ import GrainIcon from '@mui/icons-material/Grain';
 
 function SettingsMenu({ script, settings, settingsSetter }) {
   switch (script){
-    case "/poissonWorker.js":
+    case "/poissonDiscSampling.worker.js":
       return <PoissonSettings settings={settings} settingsSetter={settingsSetter}></PoissonSettings>
-    case "/FSS.js":
+    case "/FSS.worker.js":
       return <FSSsettings settings={settings} settingsSetter={settingsSetter}></FSSsettings>
     default:
       return <div>NO GENERATOR</div>
@@ -108,8 +108,8 @@ function MenuBar({scriptSetter, settings, settingsSetter, imageProperties, image
               'aria-labelledby': 'basic-button',
             }}
           >
-            <MenuItem onClick={()=>handleSelect('/poissonWorker.js')}>Poisson Disc Sampling</MenuItem>
-            <MenuItem onClick={()=>handleSelect('/FSS.js')}>Fibonacci Sunflower Spiral</MenuItem>
+            <MenuItem onClick={()=>handleSelect('/poissonDiscSampling.worker.js')}>Poisson Disc Sampling</MenuItem>
+            <MenuItem onClick={()=>handleSelect('/FSS.worker.js')}>Fibonacci Sunflower Spiral</MenuItem>
           </Menu>
         </Paper>
       </Paper>

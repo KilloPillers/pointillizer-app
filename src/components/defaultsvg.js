@@ -8,7 +8,7 @@ import {
 function DefaultSVG() {
   return (
       <ReactSvgPanZoomLoader height={"100%"}
-        src="../logo.svg"
+        src="%PUBLIC_URL%/../logo.svg"
         proxy={
             <SvgLoaderSelectElement height={"100%"} id="tes3"
               selector="#maturetree"

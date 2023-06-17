@@ -1,3 +1,4 @@
+// eslint-disable-line no-restricted-globals
 function FibonacciSunflowerSpiral(radius, width, height, n, pixels) {
     let points = []
 

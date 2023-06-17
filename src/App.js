@@ -15,8 +15,10 @@ function App() {
   const workerRef = useRef(null)
 
   useEffect(() => {
+    if (script === null)
+      return
     //Create a new web worker
-    const worker = new Worker(script)
+    const worker = new Worker(process.env.PUBLIC_URL+script)
 
     workerRef.current = worker
 
