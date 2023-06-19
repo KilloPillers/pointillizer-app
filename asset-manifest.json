@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/pointillizer-app/static/css/main.28b7e522.css",
-    "main.js": "/pointillizer-app/static/js/main.616acfc6.js",
-    "static/js/787.927377cd.chunk.js": "/pointillizer-app/static/js/787.927377cd.chunk.js",
-    "index.html": "/pointillizer-app/index.html",
-    "main.28b7e522.css.map": "/pointillizer-app/static/css/main.28b7e522.css.map",
-    "main.616acfc6.js.map": "/pointillizer-app/static/js/main.616acfc6.js.map",
-    "787.927377cd.chunk.js.map": "/pointillizer-app/static/js/787.927377cd.chunk.js.map"
+    "main.css": "/static/css/main.28b7e522.css",
+    "main.js": "/static/js/main.ed772da7.js",
+    "static/js/787.927377cd.chunk.js": "/static/js/787.927377cd.chunk.js",
+    "index.html": "/index.html",
+    "main.28b7e522.css.map": "/static/css/main.28b7e522.css.map",
+    "main.ed772da7.js.map": "/static/js/main.ed772da7.js.map",
+    "787.927377cd.chunk.js.map": "/static/js/787.927377cd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.28b7e522.css",
-    "static/js/main.616acfc6.js"
+    "static/js/main.ed772da7.js"
   ]
 }
