@@ -42,12 +42,12 @@ function poissondisksampling(radius, width, height, k, padding, pixels) {
   const ry = Math.random()*height
   const p0 = [rx, ry, radius, pixels[(width * Math.floor(ry)) + Math.floor(rx)]] 
   let grid = []
-  const cellsize = Math.floor(minDist/Math.sqrt(2))
+  const cellsize = Math.floor(minDist/Math.SQRT2)
 
   //figure out number of cells in our grid
   const ncells_width = Math.ceil(width/cellsize) + 1;
   const ncells_height = Math.ceil(height/cellsize) + 1;
-  
+
   //initialize 2D array
   for (let i = 0; i < ncells_width; i++) {
     grid[i] = [];

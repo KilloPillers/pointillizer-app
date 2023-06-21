@@ -5,6 +5,7 @@ import SVGWindow from './components/svgwindow'
 import PageHeader from './components/header'
 import MenuBar from './components/menubar'
 import DefaultSVG from './components/defaultsvg'
+import { type } from '@testing-library/user-event/dist/type'
 
 //TODO create a child component that will call postMessageToWorker
 function App() {

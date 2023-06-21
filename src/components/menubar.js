@@ -1,8 +1,10 @@
 import React, { useState } from "react"
 import './menubar.css'
+import RBush from 'rbush';
 import { Paper, Box, Divider, Menu, MenuItem, Input, Button } from "@mui/material"
 import PoissonSettings from './poissonsettings'
 import FSSsettings from "./FSSsettings"
+import APDSsettings from "./APDSsettings";
 import ImageIcon from '@mui/icons-material/Image';
 import GrainIcon from '@mui/icons-material/Grain';
 
@@ -12,6 +14,8 @@ function SettingsMenu({ script, settings, settingsSetter }) {
       return <PoissonSettings settings={settings} settingsSetter={settingsSetter}></PoissonSettings>
     case "/FSS.worker.js":
       return <FSSsettings settings={settings} settingsSetter={settingsSetter}></FSSsettings>
+    case "/APDS.worker.js":
+      return <APDSsettings settings={settings} settingsSetter={settingsSetter}></APDSsettings>
     default:
       return <div>NO GENERATOR</div>
   }
@@ -109,6 +113,7 @@ function MenuBar({scriptSetter, settings, settingsSetter, imageProperties, image
             }}
           >
             <MenuItem onClick={()=>handleSelect('/poissonDiscSampling.worker.js')}>Poisson Disc Sampling</MenuItem>
+            <MenuItem onClick={()=>handleSelect('/APDS.worker.js')}>Adaptive Poisson Disc Sampling w/ Greyscale Density</MenuItem>
             <MenuItem onClick={()=>handleSelect('/FSS.worker.js')}>Fibonacci Sunflower Spiral</MenuItem>
           </Menu>
         </Paper>
