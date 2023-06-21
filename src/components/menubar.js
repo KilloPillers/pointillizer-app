@@ -5,8 +5,10 @@ import { Paper, Box, Divider, Menu, MenuItem, Input, Button } from "@mui/materia
 import PoissonSettings from './poissonsettings'
 import FSSsettings from "./FSSsettings"
 import APDSsettings from "./APDSsettings";
+import GridSettings from "./GridSettings";
 import ImageIcon from '@mui/icons-material/Image';
 import GrainIcon from '@mui/icons-material/Grain';
+
 
 function SettingsMenu({ script, settings, settingsSetter }) {
   switch (script){
@@ -16,6 +18,8 @@ function SettingsMenu({ script, settings, settingsSetter }) {
       return <FSSsettings settings={settings} settingsSetter={settingsSetter}></FSSsettings>
     case "/APDS.worker.js":
       return <APDSsettings settings={settings} settingsSetter={settingsSetter}></APDSsettings>
+    case "/Grid.worker.js":
+      return <GridSettings settings={settings} settingsSetter={settingsSetter}></GridSettings>
     default:
       return <div>NO GENERATOR</div>
   }
@@ -115,6 +119,7 @@ function MenuBar({scriptSetter, settings, settingsSetter, imageProperties, image
             <MenuItem onClick={()=>handleSelect('/poissonDiscSampling.worker.js')}>Poisson Disc Sampling</MenuItem>
             <MenuItem onClick={()=>handleSelect('/APDS.worker.js')}>Adaptive Poisson Disc Sampling w/ Greyscale Density</MenuItem>
             <MenuItem onClick={()=>handleSelect('/FSS.worker.js')}>Fibonacci Sunflower Spiral</MenuItem>
+            <MenuItem onClick={()=>handleSelect('/Grid.worker.js')}>Grid</MenuItem>
           </Menu>
         </Paper>
       </Paper>
