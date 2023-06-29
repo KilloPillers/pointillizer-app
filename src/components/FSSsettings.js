@@ -6,13 +6,13 @@ import { Divider, Stack, Slider } from "@mui/material";
 import "./FSSsettings.css"
 
 function FSSsettings({settings, settingsSetter}) {
-  const [radius, setRadius] = useState(5)
-  const [n, setN] = useState(30)
+  const [radius, setRadius] = useState(4)
+  const [fillPercent, setfillPercent] = useState(75)
   
   useEffect(() => {
-    const newSettings = {...settings, radius:radius, n:n} 
+    const newSettings = {...settings, radius:radius, fillPercent:fillPercent} 
     settingsSetter(newSettings)
-  },[radius, n])
+  },[radius, fillPercent])
 
   return (
     <div className="setting-container">
@@ -23,16 +23,16 @@ function FSSsettings({settings, settingsSetter}) {
           <div>Radius Value: {radius}</div>
           <Stack spacing={2} direction="row" sx={{ mb: 1 }} alignItems="center">
             <FiberManualRecordIcon fontSize="small"/>
-            <Slider aria-label="Volume" value={radius} marks min={1} max={20} onChange={(event, newValue)=>{setRadius(newValue)}} />
+            <Slider aria-label="Volume" value={radius} marks min={.1} max={4.5} step={.1} onChange={(event, newValue)=>{setRadius(newValue)}} />
             <FiberManualRecordIcon fontSize="large"/>
           </Stack>
         </div>
-        <div>
-          <p>Number of Dots: {n}</p>
+        <div className="fill_percent">
+          <div>Fill Percentage: {fillPercent}%</div>
           <Stack spacing={2} direction="row" sx={{ mb: 1 }} alignItems="center">
-            <ChevronLeftIcon fontSize="medium"/>
-            <Slider aria-label="Volume" min={1} max={10000} value={n} onChange={(event, newValue)=>{setN(newValue)}} />
-            <ChevronRightIcon fontSize="medium"/>
+            <ChevronLeftIcon/>
+            <Slider aria-label="Volume" value={fillPercent} min={1} max={100} step={1} onChange={(event, newValue)=>{setfillPercent(newValue)}} />
+            <ChevronRightIcon/>
           </Stack>
         </div>
       </div>

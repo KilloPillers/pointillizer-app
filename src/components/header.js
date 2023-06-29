@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router';
 import { AppBar, Button, Typography, Toolbar, IconButton, Menu, MenuItem } from '@mui/material'
 import { saveAs } from 'file-saver';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
@@ -7,12 +8,23 @@ import './header.css'
 
 const PageHeader = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const navigate = useNavigate()
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
+  const handleExamples = () => {
+    navigate('/Examples')
+    setAnchorEl(null);
+  };
+
   const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleAbout = () => {
+    navigate('/About')
     setAnchorEl(null);
   };
 
@@ -66,8 +78,8 @@ const PageHeader = () => {
           open={Boolean(anchorEl)}
           onClose={handleClose}
         >
-          <MenuItem onClick={handleClose}>About</MenuItem>
-          <MenuItem onClick={handleClose}>Examples</MenuItem>
+          <MenuItem onClick={handleAbout}>About</MenuItem>
+          <MenuItem onClick={handleExamples}>Examples</MenuItem>
         </Menu>
         <Typography variant='h6' component="div" sx={{flexGrow:1, fontSize:30}}>Dotillism.io</Typography>
         <Button variant='contained' onClick={handleSave} startIcon={<SaveAltIcon/>}>
