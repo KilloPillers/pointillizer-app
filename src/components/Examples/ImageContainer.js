@@ -1,6 +1,15 @@
 import { Paper, ImageList, ImageListItem, ImageListItemBar, Divider } from "@mui/material"
 import "./Examples.css"
 
+function srcset(image, size, rows = 1, cols = 1) {
+  return {
+    src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
+    srcSet: `${image}?w=${size * cols}&h=${
+      size * rows
+    }&fit=crop&auto=format&dpr=2 2x`,
+  };
+}
+
 function ImageContainer() {
   const itemData = {
     title: "Lorem Ipsum",
@@ -15,38 +24,56 @@ function ImageContainer() {
     vestibulum ac congue in, ornare nec risus. Aliquam erat volutpat.", 
     images: [{
       img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-      title: 'Input',
-      author: '@bkristastucchio',
+      col: 1,
+      row: 1
     },
     {
       img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
-      title: 'Output',
-      author: '@rollelflex_graphy726',
-    }]
+      cols: 2,
+      rows: 3
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
+      cols: 1,
+      rows: 2
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
+      cols: 1,
+      rows: 2
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
+      cols: 1,
+      rows: 1
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
+      cols: 3,
+      rows: 1
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
+      cols: 1,
+      rows: 1
+    },]
   }
 
   return (
-  <div className="image-container">
-    <Paper sx={{background: "#4591DB", width: "60%", height: "%100"}} elevation={16} className="images">
-      <ImageList sx={{ width: "60%", height: "%100" }}>
+    <Paper sx={{background: "#4591DB", width: "70%", height: "auto", padding:"10px", margin:"20px"}} elevation={16}>
+      <ImageList variant="quilted" cols={4} rowHeight={"25%"}>
         {itemData.images.map((item) => (
-          <ImageListItem key={item.img}>
+          <ImageListItem  key={item.img} cols={item.cols} rows={item.rows}>
             <img
-              src={`${item.img}?w=248&fit=crop&auto=format`}
-              srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-              alt={item.title}
-              loading="lazy"
-            />
-            <ImageListItemBar
-              sx={{textAlign:"center"}}
-              title={item.title}
-              position="below"
-            />
+            {...srcset(item.img, 121, item.rows, item.cols)}
+            alt={item.title}
+            loading="lazy"
+          />
           </ImageListItem>
         ))}
       </ImageList>
+      <h3 style={{fontSize:"10px"}}>Image Source: </h3>
     </Paper>
-  </div>
   )
 }
 

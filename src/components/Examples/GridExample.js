@@ -1,4 +1,5 @@
 import { Paper, ImageList, ImageListItem, ImageListItemBar, Divider } from "@mui/material"
+import ImageContainer from "./ImageContainer"
 import "./Examples.css"
 
 function GridExample() {
@@ -13,49 +14,19 @@ function GridExample() {
     aliquam pretium leo, elementum luctus ex gravida nec. Suspendisse potenti. \
     Curabitur gravida sapien elit, quis tempor enim convallis nec. Fusce metus velit, \
     vestibulum ac congue in, ornare nec risus. Aliquam erat volutpat.", 
-    images: [{
-      img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-      title: 'Input',
-      author: '@bkristastucchio',
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
-      title: 'Output',
-      author: '@rollelflex_graphy726',
-    }]
   }
 
   return (
     <div className="item">
       <div elevation={4} sx={{background: "#4591DB"}} className="description">
-        <Paper elevation={4} sx={{background: "#4591DB"}} className="description">
+        <Paper elevation={4} sx={{background: "#4591DB"}}>
           <h1>{itemData.title}</h1>
         </Paper>
-        <Paper elevation={4} sx={{background: "#4591DB"}} className="description">
+        <Paper elevation={4} sx={{background: "#4591DB"}}>
           <h3>{itemData.description}</h3>
         </Paper>
       </div>
-      <div className="image-container">
-        <Paper sx={{background: "#4591DB"}} elevation={16} className="images">
-          <ImageList sx={{ width: "60%", height: "%100" }}>
-            {itemData.images.map((item) => (
-              <ImageListItem key={item.img}>
-                <img
-                  src={`${item.img}?w=248&fit=crop&auto=format`}
-                  srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                  alt={item.title}
-                  loading="lazy"
-                />
-                <ImageListItemBar
-                  sx={{textAlign:"center"}}
-                  title={item.title}
-                  position="below"
-                />
-              </ImageListItem>
-            ))}
-          </ImageList>
-        </Paper>
-      </div>
+      <ImageContainer/>
     </div>
   )
 }
