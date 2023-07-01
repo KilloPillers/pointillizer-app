@@ -19,7 +19,7 @@ function GridExample() {
   return (
     <div className="item">
       <div elevation={4} sx={{background: "#4591DB"}} className="description">
-        <Paper elevation={4} sx={{background: "#4591DB"}}>
+        <Paper elevation={4} sx={{background: "#4591DB", marginBottom:"10px"}}>
           <h1>{itemData.title}</h1>
         </Paper>
         <Paper elevation={4} sx={{background: "#4591DB"}}>

@@ -60,11 +60,11 @@ function ImageContainer() {
   }
 
   return (
-    <Paper sx={{background: "#4591DB", width: "70%", height: "auto", padding:"10px", margin:"20px"}} elevation={16}>
+    <Paper sx={{borderRadius:"20px", background: "#4591DB", width: "70%", height: "auto", padding:"10px", margin:"20px"}} elevation={16}>
       <ImageList variant="quilted" cols={4} rowHeight={"25%"}>
         {itemData.images.map((item) => (
-          <ImageListItem  key={item.img} cols={item.cols} rows={item.rows}>
-            <img
+          <ImageListItem key={item.img} cols={item.cols} rows={item.rows}>
+            <img style={{borderRadius:"20px"}}
             {...srcset(item.img, 121, item.rows, item.cols)}
             alt={item.title}
             loading="lazy"

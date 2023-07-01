@@ -44,7 +44,9 @@ const PageHeader = () => {
     const width = widthMatch ? widthMatch[1] : null;
     const height = heightMatch ? heightMatch[1] : null;
     //append the new svg header
-    const newSVG = [`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"`, ...modifiedLines]
+    const newSVG = [`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"`,
+    "<!-- This SVG was made using dotillism.io --",
+     ...modifiedLines]
     const modifiedString = newSVG.join('>\n')
     const blob = new Blob([modifiedString], { type: 'text/plain;charset=utf-8'})
     saveAs(blob, 'dotillismio.svg')
