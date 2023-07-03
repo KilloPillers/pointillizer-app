@@ -8,7 +8,7 @@ import {
 function DefaultSVG() {
   return (
       <ReactSvgPanZoomLoader height={"100%"}
-        src="%PUBLIC_URL%/../logo.svg"
+        src="%PUBLIC_URL%/../dotillismiologo.svg"
         proxy={
             <SvgLoaderSelectElement height={"100%"} id="tes3"
               selector="#maturetree"
@@ -17,7 +17,7 @@ function DefaultSVG() {
         }
         render={content => (
           <UncontrolledReactSVGPanZoom width={"100%"} height={"92vh"} id="test2">
-            <svg width={1680} height={880}>
+            <svg width={626} height={626}>
               {content}
             </svg>
           </UncontrolledReactSVGPanZoom>
