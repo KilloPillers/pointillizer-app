@@ -12,7 +12,7 @@ function SVGWindow({circles, width, height}) {
       tool={tool} onChangeTool={setTool}
       value={value} onChangeValue={setValue}
       SVGBackground="grey"
-      id="SVGTES"
+      id="SVGTEST"
       >
         <svg width={width} height={height} id="SVGImage"> { 
           circles.map((circle, index) => {

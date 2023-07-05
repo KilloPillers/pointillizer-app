@@ -23,7 +23,7 @@
     "react-scripts": "5.0.1",
     "react-slider": "^2.0.5",
     "react-svg-pan-zoom": "^3.12.1",
-    "react-svg-pan-zoom-loader": "^1.4.2",
+    "react-svg-pan-zoom-loader": "github:KilloPillers/react-svg-pan-zoom-loader",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
