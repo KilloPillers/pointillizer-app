@@ -28,6 +28,7 @@ function SettingsMenu({ script, settings, settingsSetter }) {
 function MenuBar({className, scriptSetter, settings, settingsSetter, imageProperties, imagePropertiesSetter, worker}) {
   const [script, setScript] = useState("")
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
   const open = Boolean(anchorEl);
 
   const handleClick = (event) => {
@@ -85,12 +86,16 @@ function MenuBar({className, scriptSetter, settings, settingsSetter, imageProper
   return (
     <Box className={className}>
       <Paper className="settings-head">
+        <>{isMobile ? (<></>):
+        (
         <Paper className="Title" sx={{margin:"10px", padding:"10px"}}>Settings</Paper>
+        )}
+        </>
         <Input
         type="file"
         onChange={handleImageUpload}
         sx={{ display: 'none' }} // Hide the input visually
-      />
+        />
       <Button variant="contained" component="label" sx={{margin:"3px"}}>
         <ImageIcon/>
         Select Photo

@@ -37,7 +37,6 @@ function Home() {
   const [open, setOpen] = React.useState(false);
   const workerRef = useRef(null)
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-  const iOS = typeof navigator !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
   console.log(isMobile)
 
