@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import './menubar.css'
-import RBush from 'rbush';
+import './Home.css'
 import { Paper, Box, Divider, Menu, MenuItem, Input, Button } from "@mui/material"
 import PoissonSettings from './poissonsettings'
 import FSSsettings from "./FSSsettings"
@@ -21,11 +21,11 @@ function SettingsMenu({ script, settings, settingsSetter }) {
     case "/Grid.worker.js":
       return <GridSettings settings={settings} settingsSetter={settingsSetter}></GridSettings>
     default:
-      return <div>NO GENERATOR</div>
+      return <div style={{height:"200px", display:"flex", justifyContent:"center", alignItems: "center"}}>NO GENERATOR</div>
   }
 }
 
-function MenuBar({scriptSetter, settings, settingsSetter, imageProperties, imagePropertiesSetter, worker}) {
+function MenuBar({className, scriptSetter, settings, settingsSetter, imageProperties, imagePropertiesSetter, worker}) {
   const [script, setScript] = useState("")
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -83,7 +83,7 @@ function MenuBar({scriptSetter, settings, settingsSetter, imageProperties, image
   }
 
   return (
-    <Box className="settings">
+    <Box className={className}>
       <Paper className="settings-head">
         <Paper className="Title" sx={{margin:"10px", padding:"10px"}}>Settings</Paper>
         <Input

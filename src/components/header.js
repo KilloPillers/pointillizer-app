@@ -84,8 +84,8 @@ const PageHeader = () => {
           <MenuItem onClick={handleExamples}>Examples</MenuItem>
         </Menu>
         <Typography variant='h6' component="div" sx={{flexGrow:1, fontSize:30}}>Dotillism.io</Typography>
-        <Button variant='contained' onClick={handleSave} startIcon={<SaveAltIcon/>}>
-            Download SVG
+        <Button className='save' variant='contained' onClick={handleSave} startIcon={<SaveAltIcon/>}>
+            Save SVG
         </Button>
       </Toolbar>
     </AppBar>
