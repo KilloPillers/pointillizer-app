@@ -116,9 +116,9 @@ const PageHeader = () => {
         var dataURL = canvas.toDataURL("image/png");
     
         // Create a temporary link element
-        var downloadLink = document.createElement("a");
+        var downloadLink = document.createElement('a');
         downloadLink.href = dataURL;
-        downloadLink.download = "image.png";
+        downloadLink.download = "dotillismio.png";
     
         // Simulate a click on the link to trigger the download
         document.body.appendChild(downloadLink);
