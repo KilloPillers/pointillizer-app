@@ -13,8 +13,13 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.3.0",
+    "canvg": "^4.0.1",
     "d3-color": "^3.1.0",
+    "dom-to-image": "^2.6.0",
+    "downloadjs": "^1.4.7",
     "file-saver": "^2.0.5",
+    "html-to-image": "^1.11.11",
+    "html2canvas": "^1.4.1",
     "nth-check": "^2.1.1",
     "rbush": "^3.0.1",
     "react": "^18.2.0",
@@ -26,6 +31,7 @@
     "react-slider": "^2.0.5",
     "react-svg-pan-zoom": "^3.12.1",
     "react-svg-pan-zoom-loader": "github:KilloPillers/react-svg-pan-zoom-loader",
+    "svg2png": "^4.1.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

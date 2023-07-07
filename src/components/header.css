@@ -4,6 +4,9 @@
 
 .header {
   width: 100%;
+  min-height: 65px;
+  overflow: visible;
+  justify-content: center;
 }
 
 @media (max-width: 450px) {
