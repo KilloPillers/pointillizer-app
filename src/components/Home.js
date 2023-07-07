@@ -38,8 +38,6 @@ function Home() {
   const workerRef = useRef(null)
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
-  console.log(isMobile)
-
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };

@@ -79,14 +79,9 @@ const PageHeader = () => {
       ...modifiedLines]
     const svgString = newSVG.join('>\n')
 
-    console.log(width,height)
-
     // Create SVG element
     var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.innerHTML = svgString;
-
-    // Render SVG
-    document.body.appendChild(svg);
 
     // Create a new image element
     var img = new Image();
@@ -100,7 +95,6 @@ const PageHeader = () => {
 
     img.onload = function (svgwidth, svgheight) {
       return function () {
-        console.log(svgwidth, svgheight)
         // Create canvas
         var canvas = document.createElement("canvas");
     
