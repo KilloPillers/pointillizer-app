@@ -65,6 +65,7 @@ const PageHeader = () => {
     const lines = data.split('>')
     const modifiedLines = lines.slice(4) //remove the first 3 lines
     modifiedLines.splice(modifiedLines.length-3,1) //remove the <g> ending wrappers
+    modifiedLines.pop() //remove the last <svg> ending wrapper
     //Parse string for width and height
     const widthRegex = /width="(\d+)"/;
     const heightRegex = /height="(\d+)"/;
@@ -74,13 +75,14 @@ const PageHeader = () => {
     const width = widthMatch ? widthMatch[1] : null;
     const height = heightMatch ? heightMatch[1] : null;
     //append the new svg header
-    const newSVG = [`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"`,
-    "<!-- This SVG was made using dotillism.io --",
+    const newSVG = ["\n<!-- This SVG was made using dotillism.io --",
       ...modifiedLines]
     const svgString = newSVG.join('>\n')
 
     // Create SVG element
     var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("width", width); // Set width in pixels
+    svg.setAttribute("height", height); // Set height in pixels
     svg.innerHTML = svgString;
 
     // Create a new image element
@@ -89,6 +91,7 @@ const PageHeader = () => {
     // Serialize SVG to string
     var serializer = new XMLSerializer();
     var svgStringSerialized = serializer.serializeToString(svg);
+    console.log(svgStringSerialized)
 
     // Set SVG string as the source for the image
     img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svgStringSerialized);
