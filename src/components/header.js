@@ -91,7 +91,6 @@ const PageHeader = () => {
     // Serialize SVG to string
     var serializer = new XMLSerializer();
     var svgStringSerialized = serializer.serializeToString(svg);
-    console.log(svgStringSerialized)
 
     // Set SVG string as the source for the image
     img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svgStringSerialized);
