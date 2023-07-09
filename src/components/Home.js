@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Global } from '@emotion/react';
 import { Box, CssBaseline, styled } from '@mui/material'
-import { grey } from '@mui/material/colors';
 import './Home.css'
 import SVGWindow from './svgwindow'
 import PageHeader from './header'
@@ -14,14 +13,15 @@ const drawerBleeding = 56;
 
 const StyledBox = styled(Box)(({ theme }) => ({
   overflow: 'visible',
-  backgroundColor: theme.palette.mode === 'light' ? '#fff' : grey[800],
+  backgroundColor: '#247cd4',
+  color: 'white'
 }));
 
 const Puller = styled(Box)(({ theme }) => ({
   overflow: 'visible',
   width: 30,
   height: 6,
-  backgroundColor: theme.palette.mode === 'light' ? grey[300] : grey[900],
+  backgroundColor: 'white',
   borderRadius: 3,
   position: 'absolute',
   top: 8,
@@ -36,6 +36,7 @@ function Home() {
   const [circles, setCircles] = useState(null)
   const [open, setOpen] = React.useState(false);
   const workerRef = useRef(null)
+  const svgRef = useRef(null)
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
   const toggleDrawer = (newOpen) => () => {
@@ -112,7 +113,7 @@ function Home() {
               }}
             >
               <Puller/>
-              <Typography sx={{ p: 2, color: 'text.secondary' }}>Settings Menu</Typography>
+              <Typography sx={{ p: 2, color: 'white' }}>Settings Menu</Typography>
             </StyledBox>
             <StyledBox
               className='drawer-content'
@@ -133,8 +134,8 @@ function Home() {
           </SwipeableDrawer>          
           )}
         </>
-        <div className='SVG' id='SVGwindow'>
-        {svgwindow()}
+        <div style={isMobile ? {}:{marginRight:'10px'}} ref={svgRef} className='SVG' id='SVGwindow'>
+        {svgwindow(svgRef)}
         </div>
       </div>
     </Box>

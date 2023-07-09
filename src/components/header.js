@@ -197,7 +197,6 @@ const PageHeader = () => {
             <SpeedDialAction
               key={action.name}
               icon={action.icon}
-              IconButtonProps={{}}
               tooltipTitle={action.name}
               tooltipOpen
               onClick={(event) => handleSpeedDialClose(action.name)}
