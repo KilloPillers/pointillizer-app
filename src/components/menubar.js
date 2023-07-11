@@ -1,14 +1,16 @@
 import React, { useState } from "react"
 import './menubar.css'
 import './Home.css'
-import { Paper, Box, Divider, Menu, MenuItem, Input, Button } from "@mui/material"
+import { Paper, Box, Divider, Menu, MenuItem, Button, Input } from "@mui/material"
 import PoissonSettings from './poissonsettings'
 import FSSsettings from "./FSSsettings"
 import APDSsettings from "./APDSsettings";
 import GridSettings from "./GridSettings";
 import ImageIcon from '@mui/icons-material/Image';
 import GrainIcon from '@mui/icons-material/Grain';
-
+import LooksOneRoundedIcon from '@mui/icons-material/LooksOneRounded';
+import LooksTwoRoundedIcon from '@mui/icons-material/LooksTwoRounded';
+import Looks3RoundedIcon from '@mui/icons-material/Looks3Rounded';
 
 function SettingsMenu({ script, settings, settingsSetter }) {
   switch (script){
@@ -27,7 +29,8 @@ function SettingsMenu({ script, settings, settingsSetter }) {
 
 function MenuBar({className, scriptSetter, settings, settingsSetter, imageProperties, imagePropertiesSetter, worker}) {
   const [script, setScript] = useState("")
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [imageUrl, setImageUrl] = useState('')
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
   const open = Boolean(anchorEl);
 
@@ -47,6 +50,7 @@ function MenuBar({className, scriptSetter, settings, settingsSetter, imageProper
         const image = new Image()
         
         image.onload = () => {
+          setImageUrl(reader.result);
           const canvas = document.createElement('canvas')
           canvas.width = image.width
           canvas.height = image.height
@@ -91,53 +95,64 @@ function MenuBar({className, scriptSetter, settings, settingsSetter, imageProper
         <Paper className="Title" sx={{margin:"10px", padding:"10px"}}>Settings</Paper>
         )}
         </>
-        <Input
-        type="file"
-        onChange={handleImageUpload}
-        sx={{ display: 'none' }} // Hide the input visually
-        />
-      <Button variant="contained" component="label" sx={{margin:"3px"}}>
-        <ImageIcon/>
-        Select Photo
-        <input type="file" style={{ display: 'none' }} onChange={handleImageUpload} />
-      </Button>
-        <Paper sx={{margin:"3px"}}>
-          <Button
-          id="basic-button"
-          aria-controls={open ? 'basic-menu' : undefined}
-          aria-haspopup="true"
-          aria-expanded={open ? 'true' : undefined}
-          onClick={handleClick}
-          >
-            <GrainIcon/>
-            Select Dot Generator
-          </Button>
-          <Menu
-            id="basic-menu"
-            anchorEl={anchorEl}
-            open={open}
-            onClose={handleClose}
-            MenuListProps={{
-              'aria-labelledby': 'basic-button',
-            }}
-          >
-            <MenuItem onClick={()=>handleSelect('/poissonDiscSampling.worker.js')}>Poisson Disc Sampling</MenuItem>
-            <MenuItem onClick={()=>handleSelect('/APDS.worker.js')}>Adaptive Poisson Disc Sampling w/ Greyscale Density</MenuItem>
-            <MenuItem onClick={()=>handleSelect('/FSS.worker.js')}>Fibonacci Sunflower Spiral</MenuItem>
-            <MenuItem onClick={()=>handleSelect('/Grid.worker.js')}>Grid</MenuItem>
-          </Menu>
-        </Paper>
+        <div className="settings-head-body">
+          <div className="settings-header-interactables">
+            <div>
+              <LooksOneRoundedIcon/>
+              <Button variant="contained" component="label" sx={{margin:"3px"}}>
+                <ImageIcon/>
+                Select Photo
+                <Input type="file" sx={{ display: 'none' }} onChange={handleImageUpload} />
+              </Button>
+            </div>
+            <div>
+              <LooksTwoRoundedIcon/>
+              <Button
+              id="basic-button"
+              variant="contained"
+              sx={{marginBottom:'3px'}}
+              aria-controls={open ? 'basic-menu' : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? 'true' : undefined}
+              onClick={handleClick}
+              >
+                <GrainIcon/>
+                Select Dot Generator
+              </Button>
+              <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                  'aria-labelledby': 'basic-button',
+                }}
+              >
+                <MenuItem onClick={()=>handleSelect('/poissonDiscSampling.worker.js')}>Poisson Disc Sampling</MenuItem>
+                <MenuItem onClick={()=>handleSelect('/APDS.worker.js')}>Adaptive Poisson Disc Sampling w/ Greyscale Density</MenuItem>
+                <MenuItem onClick={()=>handleSelect('/FSS.worker.js')}>Fibonacci Sunflower Spiral</MenuItem>
+                <MenuItem onClick={()=>handleSelect('/Grid.worker.js')}>Grid</MenuItem>
+              </Menu>
+            </div>
+          </div>
+          <Divider sx={{marginLeft: '3px'}} variant="middle" orientation="vertical" flexItem/>
+          <Paper elevation={2} sx={{ display: 'flex', flex: 1, margin: '3px', justifyContent: 'center', alignItems:'center'}}>
+            {imageUrl && <img src={imageUrl} alt="Loaded Image" style={{ maxWidth: '100%', maxHeight: '100%' }} />}
+          </Paper>
+        </div>
       </Paper>
       <Divider sx={{margin:"5px"}}/>
       <Paper className="generator-settings">
         {<SettingsMenu script={script} settings={settings} settingsSetter={settingsSetter} />}
       </Paper>
       <Divider sx={{margin:"5px"}}/>
-      <Paper className="settings-footer">
-        <Button variant="contained" sx={{margin:"5px"}} onClick={()=>{
+      <Paper className="settings-footer" sx={{display:'flex', alignItems:'flex-start', justifyContent:'center'}}>
+        <Looks3RoundedIcon sx={{marginRight:'auto'}}/>
+        <Button variant="contained" sx={{margin:'auto', marginTop:'5px', marginBottom:'5px', justifySelf:'center'}} onClick={()=>{
           if (worker.current)
             worker.current.postMessage({...settings, ...imageProperties})
         }}>Start Generating</Button>
+        <div style={{margin:'auto'}}/>
       </Paper>
     </Box>
   ) 

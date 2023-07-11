@@ -1,9 +1,20 @@
 .settings-head {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: baseline;
   align-items: center;
-  background-color: red;
+}
+
+.settings-head-body {
+  display: flex;
+  align-self: flex-start;
+}
+
+.settings-header-interactables {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
 }
 
 .Input {
@@ -24,7 +35,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: chocolate;
   width: auto;
   height: 50px;
 }

@@ -8,12 +8,14 @@ import MenuBar from './menubar'
 import DefaultSVG from './defaultsvg'
 import Typography from '@mui/material/Typography';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import SwipeUpAltIcon from '@mui/icons-material/SwipeUpAlt';
+import SwipeDownAltIcon from '@mui/icons-material/SwipeDownAlt';
 
 const drawerBleeding = 56;
 
 const StyledBox = styled(Box)(({ theme }) => ({
   overflow: 'visible',
-  backgroundColor: '#247cd4',
+  backgroundColor: '#2E82D6',
   color: 'white'
 }));
 
@@ -113,7 +115,11 @@ function Home() {
               }}
             >
               <Puller/>
-              <Typography sx={{ p: 2, color: 'white' }}>Settings Menu</Typography>
+              <div style={{display:'flex', justifyContent:'space-between', alignItems: 'center' }}>
+                {!open ? <SwipeUpAltIcon fontSize='large'/> : <SwipeDownAltIcon fontSize='large'/>}
+                <Typography sx={{ p: 2, color: 'white' }}>Settings Menu</Typography>
+                {!open ? <SwipeUpAltIcon fontSize='large'/> : <SwipeDownAltIcon fontSize='large'/>}
+              </div>
             </StyledBox>
             <StyledBox
               className='drawer-content'

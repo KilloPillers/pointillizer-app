@@ -7,7 +7,7 @@ import { AppBar,
   Toolbar, 
   IconButton, 
   Menu, 
-  MenuItem, 
+  MenuItem,
 } from '@mui/material'
 import { saveAs } from 'file-saver';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -186,7 +186,7 @@ const PageHeader = () => {
         <Typography variant='h6' component="div" sx={{flexGrow:1, fontSize:30}}>Dotillism.io</Typography>
         <SpeedDial
         ariaLabel="Save Image As"
-        sx={{ position: 'fixed', top: 3, right: 10 }}
+        sx={{ position: 'fixed', top: 3, right: 10}}
         icon={<SaveAsIcon/>}
         onClose={handleSpeedDialClose}
         onOpen={handleSpeedDialOpen}
