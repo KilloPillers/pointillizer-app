@@ -31,6 +31,8 @@ function DefaultSVG() {
           <UncontrolledReactSVGPanZoom 
           width={isMobile ? width : width-400} height={isMobile ? height-112 : height-120} 
           ref={Viewer}
+          detectAutoPan={false}
+          defaultTool="pan"
           toolbarProps={toolbarProps}>
             <svg width={626} height={626}>
               {content}

@@ -155,6 +155,7 @@ const PageHeader = () => {
   return (
     <AppBar className='header'>
       <Toolbar>
+        {/*
         <IconButton
             size="large"
             edge="start"
@@ -164,7 +165,8 @@ const PageHeader = () => {
             sx={{ mr: 2 }}
           >
             <MenuIcon />
-          </IconButton>
+        </IconButton>
+        */}
         <Menu
           id="menu-appbar"
           anchorEl={anchorEl}
