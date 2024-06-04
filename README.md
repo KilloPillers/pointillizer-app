@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Dotillism.io
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Dotillism.io is a web application that transforms your images (JPEG or PNG) into stunning pointillism/dotillism representations. Utilizing various point generation algorithms, Dotillism.io offers a unique and customizable way to create dot art.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+Dotillism.io comes with several powerful point generation algorithms:
 
-### `npm start`
+- **Poisson Disc Sampling**
+- **Adaptive Poisson Disc Sampling with Greyscale Density**
+- **Fibonacci Sunflower Spiral**
+- **Grid**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Each generator includes settings that allow you to fine-tune the final pointillism image, including:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Minimum and maximum dot radii
+- Fill percentage
+- Invert grayscale
+- K-value for Poisson disc sampling algorithms
+- Recursive mode
 
-### `npm test`
+There are additional options specific to each generator that you can explore to achieve your desired effect.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+### Steps to Create a Pointillism Image
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Select a Photo**: Upload your JPEG or PNG image.
+2. **Select a Generator**: Choose one of the available generators to use.
+3. **Start the Generator**: Customize the settings and generate your pointillism image.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Saving Your Artwork
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Once you have generated an image, you can save it as a PNG or SVG file.
 
-### `npm run eject`
+## Important Notes
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Image Size**: For optimal performance, keep your image size small. The runtime of the generators depends on the number of pixels in the image. Future updates will include an auto-resize feature for large images to enhance efficiency.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contributing
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+We welcome contributions to improve Dotillism.io! Feel free to fork the repository and submit pull requests.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Contact
 
-## Learn More
+If you have any questions or suggestions, please feel free to open an issue or contact us directly.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Thank you for using Dotillism.io! Enjoy creating beautiful dot art!
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
