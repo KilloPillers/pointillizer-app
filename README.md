@@ -1,10 +1,10 @@
-# Dotillism.io
+# pixel-pointillism.com
 
-Dotillism.io is a web application that transforms your images (JPEG or PNG) into stunning pointillism/dotillism representations. Utilizing various point generation algorithms, Dotillism.io offers a unique and customizable way to create dot art.
+pixel-pointillism.com is a web application that transforms your images (JPEG or PNG) into stunning pointillism/dotillism representations. Utilizing various point generation algorithms, pixel-pointillism.com offers a unique and customizable way to create dot art.
 
 ## Features
 
-Dotillism.io comes with several powerful point generation algorithms:
+pixel-pointillism.com comes with several powerful point generation algorithms:
 
 - **Poisson Disc Sampling**
 - **Adaptive Poisson Disc Sampling with Greyscale Density**
@@ -39,7 +39,7 @@ Once you have generated an image, you can save it as a PNG or SVG file.
 
 ## Contributing
 
-We welcome contributions to improve Dotillism.io! Feel free to fork the repository and submit pull requests.
+We welcome contributions to improve pixel-pointillism.com! Feel free to fork the repository and submit pull requests.
 
 ## Contact
 
@@ -47,5 +47,5 @@ If you have any questions or suggestions, please feel free to open an issue or c
 
 ---
 
-Thank you for using Dotillism.io! Enjoy creating beautiful dot art!
+Thank you for using pixel-pointillism.com! Enjoy creating beautiful dot art!
 
