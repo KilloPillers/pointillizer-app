@@ -75,7 +75,7 @@ const PageHeader = () => {
     const width = widthMatch ? widthMatch[1] : null;
     const height = heightMatch ? heightMatch[1] : null;
     //append the new svg header
-    const newSVG = ["\n<!-- This SVG was made using dotillism.io --",
+    const newSVG = ["\n<!-- This SVG was made using pixel-pointillism.com --",
       ...modifiedLines]
     const svgString = newSVG.join('>\n')
 
@@ -118,7 +118,7 @@ const PageHeader = () => {
         // Create a temporary link element
         var downloadLink = document.createElement('a');
         downloadLink.href = dataURL;
-        downloadLink.download = "dotillismio.png";
+        downloadLink.download = "pixel-pointillism.png";
     
         // Simulate a click on the link to trigger the download
         document.body.appendChild(downloadLink);
@@ -145,11 +145,11 @@ const PageHeader = () => {
     const height = heightMatch ? heightMatch[1] : null;
     //append the new svg header
     const newSVG = [`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"`,
-    "<!-- This SVG was made using dotillism.io --",
+    "<!-- This SVG was made using pixel-pointillism.com --",
       ...modifiedLines]
     const modifiedString = newSVG.join('>\n')
     const blob = new Blob([modifiedString], { type: 'text/plain;charset=utf-8'})
-    saveAs(blob, 'dotillismio.svg')
+    saveAs(blob, 'pixel-pointillism.svg')
   }
 
   return (
@@ -185,7 +185,7 @@ const PageHeader = () => {
           <MenuItem onClick={handleAbout}>About</MenuItem>
           <MenuItem onClick={handleExamples}>Examples</MenuItem>
         </Menu>
-        <Typography variant='h6' component="div" sx={{flexGrow:1, fontSize:30}}>Dotillism.io</Typography>
+        <Typography variant='h6' component="div" sx={{flexGrow:1, fontSize:30}}>pixel-pointillism.com</Typography>
         <SpeedDial
         ariaLabel="Save Image As"
         sx={{ position: 'fixed', top: 3, right: 10}}
